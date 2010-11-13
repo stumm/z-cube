@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+
+{% block title %}New Device Setup{% endblock %}
+
+{% block content %}
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Begin
+function mactest(inform) 
+{
+var regex="";
+var teststr="";
+if (inform.value == "00:00:00:00:00:00") {
+   alert("'00:00:00:00:00:00' is not a valid mac address");
+   inform.value = "";
+   return false;
+}
+regex=/^([0-9a-f]{2}([:-]|$)){6}$|([0-9a-f]{4}([.]|$)){3}$/i;
+teststr=inform.value;
+if (regex.test(teststr)) {
+    return true;
+} else {
+    alert("Not a valid mac address");
+    inform.value = "";
+    return false;
+ } 
+}
+
+function checkPw(form) {
+  pw1 = form.pw1.value;
+  pw2 = form.pw2.value;
+
+  if (pw1 == '') {
+   alert ("\nPasswords cannot be empty.");
+   return false;
+  }
+  if (pw1 != pw2) {
+    alert ("\nYou did not enter the same passwords. Please re-enter your password for the device.")
+  return false;
+ }
+   else return true;
+}
+// End -->
+</script>
+
+<div id="title">New Device</div>
+<div id="blurb">
+	<div id="explanation">
+		<p> Here you'll set up your new Z<sup>cube</sup>. To do this, you'll need your unique ID number found on the underbelly of the device. This will look like "09:1a:00:22:11:00:aa". You'll also need to set a password for the device. It should be different than your user password but something you'll need to remember so that you can enter it during the Z<sup>cube</sup> hardware setup process.</p>
+	</div>
+	<frameset id="iminfo">
+		<legend>Device Setup</legend>
+		<form name="myform" onSubmit="return checkPw(myform)"  action="/confirm_device_setup" method="POST">
+		<fieldset>
+			<label for="nm">Give your Z<sup>cube</sup> a short name: </label>
+			<input type="text"  name="nm"  size="20" maxlength="19" id="nm" value="" />
+		</fieldset>
+		<fieldset>
+        	<label for="pn">Enter your Z<sup>cube</sup> device ID</label>
+			<input type="text" onBlur="return mactest(pn)" name="pn"  size="45" id="pn" value="00:00:00:00:00:00" />
+		</fieldset>
+		<fieldset>
+			<label for="pw1">Enter your password for the Z<sup>cube</sup></label>
+			<input type="password" name="pw1"  size="15" id="pw1" maxlength="14" value="" />
+			<label for="pw2">Re-enter your password ... </label>
+			<input type="password" name="pw2"  size="15" id="pw2" maxlength="14" value="" />
+		</fieldset>
+		<input type="hidden" id="siteuser" name="siteuser" value="{{ siteuser }}">
+        <input type="submit" value="Verify Device">
+        <input type="reset">
+    </form>
+  </frameset>
+{% endblock %}

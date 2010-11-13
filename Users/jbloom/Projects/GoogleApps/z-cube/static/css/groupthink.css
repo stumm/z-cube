@@ -1,0 +1,576 @@
+/* group-think.appspot.com
+	generic styles for overall look of website
+	
+	2009-0404 John M. Brewer
+	
+	#929292		=	backgroundColor1 (medium grey)
+	
+	#424242		=	accentColor1 (dark grey - tungsten)
+	#5e5e5e		=	accentColor2 (dark grey - steel)
+	
+	#f6ec60		=	accentColor3 (yellow)
+	#ecf4fa		=	accentColor4 (paler blue)
+	#ebebeb		=	accentColor5 (light grey)
+	#527aa6		=	accentColor6 (slate blue)
+	
+	#c6e9f2		=	accentColor? (pale blue)
+*/
+
+body {
+	/* use text-align to keep IE happy since it doesn't like auto margins */
+	text-align: center;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10pt;
+	line-height: 125%;
+	background-color: #929292; /* accentColor1 */
+}
+
+#wrapper {
+	width: 950px;
+	background-color: #929292; /* accentColor1 */
+	
+	background-image: url('/images/logo_on_grey.gif');
+	background-repeat: no-repeat;
+	background-position: left top;
+	
+	margin: 0px;
+	padding: 0px;
+	border: 0px;
+	
+	margin-left: auto;
+	margin-right: auto;
+	/* remove the text-centering that we added to the body for IE to float this properly */
+	text-align: left;
+}
+
+#copyright {
+	position: relative;
+	height: 24px;
+	margin: 0px;
+	padding: 2px;
+	
+	padding-left: 10px;
+	padding-right: 10px;
+	
+	/*background-image: url('/images/footer_bg2.png');
+	background-position: left top;
+	background-repeat: repeat-x;
+	*/
+	
+	text-align: right;
+	color: #333333;
+}
+	#copyright a {
+		color: #5e5e5e; /* accentColor2 */
+		text-decoration: none;
+	}
+	
+	#copyright a:hover {
+		color: #ebebeb; /* accentColor5 */
+		text-decoration: underline;
+	}
+	
+	#copyright .right {
+		width: 0px;
+		height: 0px;
+		display: none;
+	}
+
+#closewrapper {
+	display: none;
+}
+
+#closewrapper .right {
+	width: 0px;
+	height: 0px;
+	display: none;
+}
+
+/* ============================================
+	Intro:
+	Logo, Navigation, Menu, Menu Items, & Page Header
+   ============================================
+*/
+#intro {
+	/* height includes:
+		25px -- home | about links
+	*/
+	/* height: 100px; */
+	*/ width: 100%;
+	position: relative;
+	overflow: visible;
+
+	z-index: 100;
+	/*
+	background-image: url('/images/logo_on_grey.gif');
+	background-repeat: no-repeat;
+	background-position: left top;
+	*/
+}
+
+	#homelink {
+		position: absolute;
+		top: 0px;
+		left: 0px;
+		height: 160px;
+		width: 120px;
+		border: 0px none;
+		margin: 0px;
+		padding: 0px;
+		line-height: 150px;
+		text-decoration: none;
+	}
+	
+	#pageHeader {
+		/* 45 pixel top margin avoids the absolutely positioned nav above it */
+		position: relative;
+		width: 800px;
+		/* height: 60px; */
+		margin: 0px;
+		margin-left: 150px;
+		margin-bottom: 10px;
+		padding: 45px 10px 0px 10px;
+	}
+	
+		#pageHeader h1, #pageHeader h2, #pageHeader h3 {
+			text-align: left;
+			margin: 0px;
+			padding: 0px;
+			border: 0px;
+		}
+		
+		#pageHeader h1 {
+			margin-bottom: -2px;
+			color: #f6ec60; /* accentColor3 */
+			
+			font-size: 20pt;
+			line-height: 24pt;
+			font-weight: bold;
+		}
+		
+		#pageHeader h2 {
+			color: #6d6864; /* accentColor2 */
+			
+			font-size: 14pt;
+			line-height: 18pt;
+			font-weight: normal;
+		}
+		
+		#pageHeader h3 {
+			color: #6d6864; /* accentColor4 */
+			font-size: 12pt;
+			line-height: 15pt;
+		}
+
+/* =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+		Horizontal menu-bar and drop-down menus
+	*/
+	#nav {
+		position: absolute;
+		right: 0px;
+		top: 10px;
+		
+		padding: 0px;
+		border: 0px;
+		margin: 0px;
+		
+		text-align: right;
+		background-color: transparent;
+		
+		/*	background-image: url(/images/menu_bg.gif);
+			background-repeat: repeat-x;
+			background-position: left top;
+		*/
+		
+		height: 25px;
+		width: 800px;
+		
+		font-size: 12pt;
+		line-height: 18pt;
+	}
+/* =-=-=-=-= The horizontal menu-bar =-=-=-=-= */
+		#nav ul {
+			margin: 0px;
+			padding: 0px;
+			border: 0px;
+			list-style-type: none;
+			clear: right;
+		}
+		
+		#nav li {
+			position: relative;
+			margin: 0px;
+			padding: 0px;
+			border: 0px;
+			
+			float: right;
+			display: block;
+			padding-right: 8px;
+		}
+		
+		#nav a {
+			display: block;
+			text-decoration: none;
+			font-size: 12pt;
+			font-weight: normal;
+			color: #424242; /* accentColor1 */
+			background: transparent;
+			
+			padding-top: 2px;
+			padding-bottom: 0px;
+			padding-left: 8px;
+			padding-right: 8px;
+		}
+		
+		#nav a.disabled {
+			color #cccccc;
+		}
+		
+		#nav li a {
+			font-size: 12pt;
+		}
+		
+			#nav li a.selected {
+				background-image: url(/images/nav-selected-bg.gif);
+				background-repeat: repeat-x;
+				color: #ffffff;
+			}
+			
+			/* =-=-=-=-=-= Drop-Down Menus =-=-=-=-=-= 
+				sub-menus start below the enclosing list item and (for this layout)
+				align with the right side of the menu since the menus start on the right
+				side of the page.
+			*/
+			#nav li ul {
+				position: absolute;
+				padding-top: 0px;
+				top: 18pt;
+				right: 0px;
+				/* same as line height for items...unfortunately doesn't scale with font size */
+				display: none;
+			}
+			
+			/* The Vertical (drop-down) menu (ie menu items) */
+			#nav li ul li {
+				float: right;
+				clear: both;
+			}
+			
+			#nav li ul li a {
+				width: 10em;
+				font-size: 10pt;
+			
+				background: #ebebeb; /* accentcolor5 */
+				border: 0px none;
+			}
+		
+		/*	=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+			Menu and Menu-Item hiliting
+		*/
+		/* fix IE. Hide from IE Mac \*/
+		* html #nav ul li { float: right; height: 1%; }
+		* heml #nav ul li a { height: 1%; }
+		/* End */
+		
+		#nav li:hover ul, li.over ul { display: block; } /* show the menu */
+		#nav li:hover a , li.over a { background-color: #5e5e5e; color: #ecf4fa; } /* accentColor2, accentColor4 */
+		#nav li:hover a.selected, li.over a.selected, #nav li:hover a.selected:hover { color: #ecf4fa; } /* accentColor4 */
+		#nav li:hover ul li a, li.over ul li a { background-color: #5e5e5e; color: #ebebeb; } /* accentColor2, accentColor5 */
+		#nav li:hover a:hover, li.over a:hover { background-color: #ebebeb; color: #5e5e5e; } /* accentColor4, accentColor2 */
+		#nav li:hover a.disabled, li.over a.disabled { background-color: transparent; }
+
+/* =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+	Main Content styles
+*/
+
+#content {
+	width: 800px;
+	position: relative;
+	border: 0px;
+	padding: 12px;
+	margin: 0px;
+	margin-left: 150px;
+	
+	background-image: url('/images/content_bg.gif');
+	background-position: left top;
+	background-repeat: repeat-y;
+}
+
+#content div.startContent {
+	clear: both;
+	line-height: 2px;
+	height: 20px;
+	width: 800px;
+	margin: -12px -12px 0px -12px;
+	background-image: url('/images/content_top.gif');
+	background-position: left top;
+	background-repeat: no-repeat;
+}
+
+#closecontent {
+	line-height: 2px;
+	height: 20px;
+	width: 800px;
+	margin: 0px -12px -12px -12px;
+	background-image: url('/images/content_bot.gif');
+	background-position: left bottom;
+	background-repeat: no-repeat;
+}
+
+/* by making a bigger image and putting the right hand edge of the background
+   in this, you can make the content area expandable instead of fixed.
+*/
+#closecontent .right {
+	width: 0px;
+	height: 0px;
+	display: none;
+}
+
+h1, h2, h3 {
+	color: #5e5e5e; /* accentColor2 */
+}
+
+h3 {
+	font-size: 11pt;
+	font-weight: bold;
+}
+
+h4 {
+	font-size: 10pt;
+	font-weight: bold; 
+}
+
+.hrbottom {
+	height: 2px;
+	margin: 2px 10px 4px 10px;
+	border: 0px none;
+	background-color: #5e5e5e;
+/*	background-image: url(/images/portal_hr_bg.gif);
+	background-repeat: repeat-x;
+*/
+}
+
+#nav .hrbottom {
+	margin-top: 23px;
+}
+
+
+/* =-=-=-=-=-=-=-=-=-=-= Rounded Corner Dialogs - Fluid =-=-=-=-=-=-=-=-=-=-=
+	From: "Even more rounded cornders with CSS"
+*/
+.dialog {
+	display: inline-block;
+}
+
+.dialog, #content .dialog {
+	position:relative;
+	margin:0px auto;
+	min-width:8em;
+	max-width:760px; /* based on image dimensions */
+	z-index:1;
+	margin-left:14px; /* default, width of left corner */
+	margin-bottom:0.5em; /* spacing under dialog */
+}
+
+	.dialog .content,
+		.dialog .t,
+		.dialog .b,
+		.dialog .b div {
+		background-image: url(/images/dialog.gif);
+		background-repeat: no-repeat;
+		background-position: right top;
+	}
+	
+	.dialog .content {
+		position:relative;
+		zoom:1;
+		_overflow-y:hidden;
+		padding:0px 14px 0px 0px;
+	}
+	
+	#content .dialog .t,
+	.dialog .t {
+		/* top+left vertical slice */
+		position:absolute;
+		left:0px;
+		top:0px;
+		width:14px; /* top slice width */
+		margin-left:-14px;
+		height:100%;
+		_height:1600px; /* arbitrary long height, IE 6 */
+		background-position:top left;
+	}
+	
+	.dialog .b, #content .dialog .b {
+		/* bottom */
+		position:relative;
+		width:100%;
+	}
+	
+	.dialog .b,
+	.dialog .b div {
+		height:14px; /* height of bottom cap/shade */
+		font-size:1px;
+		text-align: left;
+	}
+	
+	.dialog .b {
+		background-position:bottom right;
+	}
+	
+	#content .dialog .b div,
+	.dialog .b div {
+		position:relative;
+		width:14px; /* bottom corner width */
+		margin-left:-14px;
+		background-position:bottom left;
+		text-align: left;
+	}
+	
+	.dialog .hd,
+	.dialog .bd,
+	.dialog .ft {
+		position:relative;
+	}
+	
+	.dialog .wrapper {
+		/* extra content protector - preventing vertical overflow (past background) */
+		position:static;
+		max-height:800px;
+	}
+	
+	.dialog h1,
+	.dialog h2,
+	.dialog p {
+		margin: 0px;
+		/* margins will blow out backgrounds, leaving whitespace. */
+		padding: 0.4em 0px 0.4em 0px;
+	}
+	
+	.dialog h1, .dialog h2 {
+		padding-bottom: 4px;
+	}
+	
+	.dialog .hd, #content .dialog .hd,
+	#content .dialog .hd h1, #content .dialog .hd h2 {		
+		color:#527aa6;
+	}
+	
+		.dialog .hd h1, #content .dialog .hd h1 {
+			font-size: 14pt;
+			line-height: 18pt;
+			font-weight: bold;
+		}
+		
+		.dialog .hd h2, #content .dialog .hd h2 {
+			font-size: 12pt;
+			line-height: 14pt;
+			font-weight: bold;
+		}
+
+		.dialog .hd h1 .note, #content .dialog .hd h1 .note {
+			font-size: 10pt;
+		}
+		
+		.dialog .hd h2 .note, #content .dialog .hd h2 .note {
+			font-size: 8pt;
+		}
+
+dl.params {
+    border: 0px none;
+    padding: 0.5em;
+}
+  dl.params dt {
+    float: left;
+    clear: left;
+    /* width: 100px; */
+    /* text-align: right; */
+    font-weight: bold;
+    color: #424242; /* accentColor1 */
+    display: inline;
+  }
+  dl.params dt:after {
+    content: " = ";
+  }
+  dl.params dd {
+  	/* margin: 0 0 0 110px; */
+  	padding: 0em 0em 0.5em 0em;
+  	text-indent: 0.5em;
+  }
+
+#target {
+	width: 400px;
+	text-align: center;
+	padding: 0px;
+	padding-bottom: 12px;
+}
+
+#target_info {
+	display: inline-block;
+	width: 250px;
+	float: left;
+}
+
+#left_slide_label, #right_slide_label {
+	float: left;
+}
+
+/* strange width bug...this could well cause problems later:( */
+form {
+	width: 800px;
+}
+
+fieldset.q {
+	border: 0px none;
+}
+
+fieldset.q label {
+	display: block;
+}
+
+/* =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+	Table formatting
+*/
+#content table {
+	width: 300px;
+	
+	border: 0px none;
+	padding: 0px;
+	margin: 0px;
+	}
+
+#table div.target {
+    width: 300px;
+}
+#table div.ans {
+    width: 300px;
+}
+	
+	#content tr, #content tr.odd {
+		padding: 2px 4px 2px 4px;
+	}
+	
+	#content tr.odd {
+	
+	}
+	
+	#content thead tr {
+		
+	}
+	
+	#content thead tr th, #content th {
+		font-weight: bold;
+		background-color: #527aa6; /* accentColor6 */
+		color: #ebebeb; /* accentColor5 */
+		text-align: center;
+		
+		padding: 3px;
+	}
+	
+	#content td {
+	width: 300px;
+	}
+	
+	#content tbody {
+	width: 600px;
+	}

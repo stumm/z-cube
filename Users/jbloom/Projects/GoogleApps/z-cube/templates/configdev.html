@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+{% block morehead %}
+<link   rel="stylesheet" type="text/css" href="/css/tabcontent.css" />
+<script type="text/javascript" src="/js/tabcontent.js"></script>
+<script type="text/javascript" src="/js/jscolor.js"></script>
+{% endblock %}
+{% block title %}{% endblock %}
+
+{% block pageheader %}Z<sup>cube</sup>{% endblock %}
+{% block subheader %}Color Your Life{% endblock %}
+
+{% block content %}
+ <div id="login">
+ Logged in as {{ nick }}. {{ greeting }} <a href="{{ logout_url }}">Logout</a>
+ </div>
+
+{{ mess }}
+
+<p align="left">
+	<ul id="thetabs" class="shadetabs">
+
+		<li><a href="#" rel="simplecolor" class="selected">Set Simple Color</a></li>
+		<li><a href="#" rel="config">Configure Device Settings</a></li>
+		<li><a href="/advanced">advanced settings</a></li>
+	</ul>
+
+	<div style="border:1px solid gray; width:450px; margin-bottom: 1em; padding: 10px">
+		<div id="simplecolor" class="tabcontent">
+			<form name="colorset" action="/setcolor" method="POST">
+			<p>Click to choose your color: <input  name="colorfield1" id="colorfield1" class="color" value="66ff00">
+				<input type="hidden" id="siteuser" name="siteuser" value="{{ siteuser }}">
+				<input type="hidden" id="uid" name="uid" value="{{ uid }}">
+				<input type="hidden" id="type" name="type" value="simple">
+		      <input type="submit" value="Set Color">
+		  </form>		
+		</div>
+	</div>
+	<div id="config" class="tabcontent">
+		<frameset id="iminfo">
+			<legend>Device Settings Edit (id = {{ uid }})</legend>
+			<form name="myform" onSubmit="return checkPw(myform)"  action="/editdev" method="POST">
+			<fieldset>
+				<label for="nm">Edit your Z<sup>cube</sup> short name: </label>
+				<input type="text"  name="nm"  size="20" maxlength="19" id="nm" value="{{ name }}" />
+			</fieldset>
+			<fieldset>
+				<label for="pw1">Enter a new password for the Z<sup>cube</sup></label>
+				<input type="password" name="pw1"  size="15" id="pw1" maxlength="14" value="" />
+				<br />
+				<label for="pw2">Re-enter a new password ... </label>
+				<input type="password" name="pw2"  size="15" id="pw2" maxlength="14" value="" />
+			</fieldset>
+			<input type="hidden" id="siteuser" name="siteuser" value="{{ siteuser }}">
+			<input type="hidden" id="uid" name="uid" value="{{ uid }}">
+	      <input type="submit" value="Change Device Settings">
+	  </form>
+	</frameset>
+	</div>
+
+	<script type="text/javascript">
+
+	var countries=new ddtabcontent("thetabs")
+	countries.setpersist(true)
+	countries.setselectedClassTarget("link") //"link" or "linkparent"
+	countries.init()
+
+	</script>
+{% endblock %}

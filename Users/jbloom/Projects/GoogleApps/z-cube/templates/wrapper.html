@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<title>{% block pagetitle %}Z<sup>cube</sup>{% endblock %}</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<link type="text/css" rel="stylesheet" href="/css/groupthink.css" />
+	<link type="text/css" rel="stylesheet" href="/css/default_slider.css" />
+<!--	<script type='text/javascript'  src='http://getfirebug.com/releases/lite/1.2/firebug-lite-compressed.js'></script> -->
+	<meta name="viewport" content="width=800">
+	{% block morehead  %}{% endblock %}
+</head>
+
+<body {{ onload }}>
+<div id="wrapper">
+	<div id="intro"><a href="/" id="homelink"> </a>
+		<div id="pageHeader">
+			<h1>{% block pageheader %} {% endblock pageheader %}</h1>
+			<h2>{% block subheader %} {% endblock subheader %}</h2>
+			<h3>{% block subsubheader %} {% endblock subsubheader %}</h3>
+			<img src="/images/cross.gif">
+		</div>
+		
+		<div id="nav">
+			{% block navigation %}{% endblock navigation %}
+		</div>
+	</div>
+	
+	<div id="content">
+    	<div class="startContent"></div> <!--- to make sure page expands as it should -->
+        {% block content %}{% endblock %}
+        <div id="closecontent"><div class="right"></div></div>
+    </div>
+
+	<br />
+	<div class="hrbottom"></div><!-- ie doesn't like styling HRs -->
+	
+	<div id="copyright"><div class="right"></div>&copy; 2009 Z<sup>cube</sup>
+	</div>
+	<div id="closewrapper"><div class="right"></div></div>
+</div>
+</body>
+</html>

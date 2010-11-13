@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %}{% endblock %}
+
+{% block pageheader %}Z<sup>cube</sup>{% endblock %}
+{% block subheader %}Color Your Life{% endblock %}
+
+{% block content %}
+ <div id="login">
+ Logged in as {{ nick }}. {{ greeting }} <a href="{{ logout_url }}">Logout</a>
+ </div>
+
+{{ main }}
+
+<!-- <div><a href="/newproject">Start a New Project... (must be Group Think Admin)</a></div>-->
+
+{% endblock %}

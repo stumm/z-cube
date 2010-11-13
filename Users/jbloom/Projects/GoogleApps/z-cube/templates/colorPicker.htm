@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+		"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<title>YUI Color Picker</title>
+  <link rel="stylesheet" type="text/css" href="colorPicker.css">
+  <script src="http://ajax.googleapis.com/ajax/libs/prototype/1.6.0.2/prototype.js" type="text/javascript"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/scriptaculous/1.8.1/scriptaculous.js" type="text/javascript"></script>
+  <script src="yahoo.color.js" type="text/javascript"></script>
+  <script src="colorPicker.js" type="text/javascript"></script>
+  
+  <style type="text/css">
+/* additional styles for demo */
+
+form p {
+  margin: 0 0 0.5em 0;
+}
+
+  </style>
+
+</head>
+<body>
+
+<h1>ColorPicker for script.aculo.us</h1>
+
+<h2>Demo</h2>
+<p>Just click into the fields to start picking a color</p>
+<br />
+
+<form>
+<p>color 1 #<input type="text" id="colorfield1" value="FF33FF"></p>
+<p>color 2 #<input type="text" id="colorfield2" value="CC3366"></p>
+<p>color 3 #<input type="text" id="colorfield3" value="66FF66"></p>
+<p>color 4 #<input type="text" id="colorfield4" value="339900"> <button style="width: 1.5em; height: 1.5em; border: 1px outset #666;" id="colorbox4" class="colorbox"></button></p>
+</form>
+
+<br />
+<br />
+<b>initializing the color pickers:</b>
+<pre>
+&lt;script type="text/javascript"&gt;
+["1", "2", "3"].each(function(idx) {
+  new Control.ColorPicker("colorfield" + idx);
+});
+new Control.ColorPicker("colorfield4", { "swatch" : "colorbox4" });
+&lt;/script&gt;
+</pre>
+
+<script type="text/javascript">
+// <![CDATA[
+["1", "2", "3"].each(function(idx) {
+  new Control.ColorPicker("colorfield" + idx, { IMAGE_BASE : "img/" });
+});
+new Control.ColorPicker("colorfield4", { "swatch" : "colorbox4" });
+// ]]>
+</script>
+
+<p>
+written by Matthias Platzer AT <a href="http://www.knallgrau.at">knallgrau.at</a><br />
+concept by <a href="http://www.dynamicdrive.com/dynamicindex11/yuicolorpicker/">YUI Color Picker script</a>.<br />
+implemented using <a href="http://script.aculo.us">script.aculo.us</a>, <a href="http://developer.yahoo.com/yui/">YUI Util color.js</a> and some more <a href="http://www.easyrgb.com/math.html">EasyRGB math</a>
+</p>
+
+</body>
+</html>
